@@ -7,25 +7,23 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="433.0" prefWidth="573.0" style="-fx-background-color: null;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1">
+<AnchorPane prefHeight="433.0" prefWidth="573.0" style="-fx-background-color: null;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.IndexController">
       <AnchorPane layoutY="-7.0" prefHeight="73.0" prefWidth="600.0" style="-fx-background-color: #3D4956;">
          <children>
       
-            <ImageView fx:id="ImageChooser" accessibleRole="BUTTON" fitHeight="56.0" fitWidth="54.0" layoutX="532.0" layoutY="14.0"  pickOnBounds="true">
+            <ImageView fx:id="ImageChooser" accessibleRole="BUTTON" fitHeight="56.0" fitWidth="54.0" layoutX="532.0" layoutY="14.0" onMouseClicked="#chooseImage" pickOnBounds="true">
                <image>
                   <Image url="@./icons8-picture-96.png" />
-                  
-                     </image>
+               </image>
             </ImageView>
             <TextField fx:id="imagePath" layoutX="14.0" layoutY="22.0" prefHeight="39.0" prefWidth="503.0" promptText="Image path" />
          </children>
       </AnchorPane>
       <AnchorPane layoutY="84.0" prefHeight="324.0" prefWidth="600.0" style="-fx-background-color: #3D4956;">
          <children>
-            <ImageView fitHeight="267.0" fitWidth="270.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true">
+            <ImageView fx:id="selectedImageView" fitHeight="267.0" fitWidth="270.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true">
                <image>
-                  <Image url="@./../../../../../../../../Desktop/Poster/813WChlLA9L._SL1500_%5B1%5D.jpg" />
+                  
                </image>
             </ImageView>
             <TextArea layoutX="316.0" layoutY="14.0" prefHeight="267.0" prefWidth="270.0" />
