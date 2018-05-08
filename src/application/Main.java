@@ -11,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent; 
 
 
+
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
@@ -26,7 +27,6 @@ public class Main extends Application {
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
-			
 		      //Creating the mouse event handler 
 		      EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() { 
 		         @Override 

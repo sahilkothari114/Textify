@@ -11,6 +11,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
+import application.IndexModel;
 
 public class IndexController {
 	@FXML
@@ -21,6 +22,9 @@ public class IndexController {
 	
 	@FXML
 	private ImageView selectedImageView;
+	
+	@FXML
+	private TextArea resultText; 
 	
 	@FXML
 	public void chooseImage(MouseEvent e) {
@@ -38,6 +42,9 @@ public class IndexController {
 		} 
 		Image image = new Image(inputstream);
 		selectedImageView.setImage(image);
+		IndexModel im  = new IndexModel(); 
+		resultText.setText(im.textify(selectedFile));
+		
 	}
 	
 }
