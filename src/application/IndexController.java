@@ -43,8 +43,15 @@ public class IndexController {
 		Image image = new Image(inputstream);
 		selectedImageView.setImage(image);
 		IndexModel im  = new IndexModel(); 
+		resultText.setWrapText(true);
 		resultText.setText(im.textify(selectedFile));
 		
 	}
+	@FXML
+	public void copyText(MouseEvent f) {
+		resultText.selectAll();
+		resultText.copy();
+	}
+	
 	
 }

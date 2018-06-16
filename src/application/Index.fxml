@@ -42,12 +42,12 @@
                   
                </image>
             </ImageView>
-            <TextArea fx:id="resultText" layoutX="316.0" layoutY="14.0" prefHeight="267.0" prefWidth="270.0">
+            <TextArea fx:id="resultText" layoutX="316.0" layoutY="14.0" prefHeight="267.0" prefWidth="270.0" AnchorPane.rightAnchor="14.0">
             <tooltip>
                <Tooltip text="Text from image" />
             </tooltip></TextArea>
             <Button layoutX="410.0" layoutY="299.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-border-radius: 5em; -fx-background-color: #e67e22; -fx-background-radius: 5em;" text="Save" />
-            <Button layoutX="316.0" layoutY="299.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-border-radius: 5em; -fx-background-color: #e67e22; -fx-background-radius: 5em;" text="Copy" />
+            <Button layoutX="316.0" layoutY="299.0" mnemonicParsing="false" onMouseClicked="#copyText" prefHeight="25.0" prefWidth="82.0" style="-fx-border-radius: 5em; -fx-background-color: #e67e22; -fx-background-radius: 5em;" text="Copy" />
             <Button layoutX="504.0" layoutY="299.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-border-radius: 5em; -fx-background-color: #e67e22; -fx-background-radius: 5em;" text="Save As" />
          </children>
 </AnchorPane>

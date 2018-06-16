@@ -9,10 +9,14 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent; 
+import java.lang.String;
+import java.lang.Exception;
 
 
 
 public class Main extends Application {
+	private double xOffset = 0; 
+	private double yOffset = 0;
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -27,6 +31,22 @@ public class Main extends Application {
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			
+			//for dragable app
+			root.setOnMousePressed(new EventHandler<MouseEvent>() {
+	            @Override
+	            public void handle(MouseEvent event) {
+	                xOffset = event.getSceneX();
+	                yOffset = event.getSceneY();
+	            }
+	        });
+	        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+	            @Override
+	            public void handle(MouseEvent event) {
+	            	primaryStage.setX(event.getScreenX() - xOffset);
+	            	primaryStage.setY(event.getScreenY() - yOffset);
+	            }
+	        });
 		      //Creating the mouse event handler 
 		      EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() { 
 		         @Override 
@@ -35,6 +55,15 @@ public class Main extends Application {
 		           
 		         } 
 		      };
+		      
+		      
+		      EventHandler<MouseEvent> eventHandler1 = new EventHandler<MouseEvent>() { 
+			         @Override 
+			         public void handle(MouseEvent e) { 
+			            ic.copyText(e);
+			           
+			         } 
+			      };
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
