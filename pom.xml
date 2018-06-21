@@ -60,6 +60,13 @@
 		<artifactId>jai-imageio-core</artifactId>
 		<version>1.2.1</version>
 	</dependency>
+	  	<!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
+
+	<dependency>
+	    <groupId>com.itextpdf</groupId>
+	    <artifactId>itextpdf</artifactId>
+	    <version>5.0.6</version>
+	</dependency>
   </dependencies>
   <dependencyManagement>
   	<dependencies>
@@ -69,5 +76,8 @@
   			<version>8.8.3</version>
   		</dependency>
   	</dependencies>
+
+
+  	
   </dependencyManagement>
 </project>

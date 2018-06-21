@@ -2,9 +2,20 @@ package application;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import com.itextpdf.text.Anchor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.CMYKColor;
+import com.itextpdf.text.pdf.PdfWriter;
 
 import net.sourceforge.tess4j.*;
 
@@ -63,7 +74,7 @@ public class IndexModel {
         }*/
 	}
 	
-	public void saveModel() throws IOException {
+	public void saveModel(String directory) throws IOException {
 		FileWriter writer = null;
 		try {
 			output_temp = new File(directory+"\\"+image.getName()+".txt");
@@ -77,5 +88,19 @@ public class IndexModel {
 		}finally {
 			writer.close();
 		}
+	}
+	public void saveAsPdfModel(String directory) throws IOException, DocumentException {
+		Document document = new Document(PageSize.A4, 50, 50, 50, 50);
+		PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(directory+"\\"+image.getName()+".pdf"));
+		document.open();
+		
+		Anchor anchorTarget = new Anchor("Following is the Text from Image"+image.getName());
+	    anchorTarget.setName("BackToTop");
+	    Paragraph paragraph1 = new Paragraph();
+	    paragraph1.setSpacingBefore(50);
+	    paragraph1.add(anchorTarget);
+	    document.add(paragraph1);
+	    document.add(new Paragraph(result,FontFactory.getFont(FontFactory.HELVETICA, 14, Font.BOLD, new CMYKColor(0, 255, 0, 0))));
+	    document.close();
 	}
 }

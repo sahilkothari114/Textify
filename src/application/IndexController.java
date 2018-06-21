@@ -8,8 +8,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Collection;
+
+import com.itextpdf.text.DocumentException;
+
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
@@ -35,6 +39,9 @@ public class IndexController {
 	private javafx.scene.control.Button save;
 	
 	@FXML
+	private javafx.scene.control.Button saveAsPdf;
+	
+	@FXML
 	public void chooseImage(MouseEvent e) {
 		FileChooser fc = new FileChooser();
 		fc.getExtensionFilters().addAll(new ExtensionFilter("JPG files","*.jpg"));
@@ -53,7 +60,6 @@ public class IndexController {
 		IndexModel im  = new IndexModel(); 
 		resultText.setWrapText(true);
 		resultText.setText(im.textify(selectedFile));
-		
 	}
 	
 	@FXML
@@ -72,8 +78,23 @@ public class IndexController {
 	
 	@FXML
 	private void save() throws IOException{
-		IndexModel im  = new IndexModel();
-		im.saveModel();
+		DirectoryChooser directoryChooser = new DirectoryChooser();
+		File selectedDirectory = directoryChooser.showDialog(null);
+        if (selectedDirectory != null) {
+    		IndexModel im  = new IndexModel();
+    		im.saveModel(selectedDirectory.getAbsolutePath());    
+        }
 	}
 	
+	@FXML
+	private void saveAsPdf() throws IOException, DocumentException{
+
+		DirectoryChooser directoryChooser = new DirectoryChooser();
+		File selectedDirectory = directoryChooser.showDialog(null);
+        if (selectedDirectory != null) {
+        	IndexModel im  = new IndexModel();
+    		im.saveAsPdfModel(selectedDirectory.getAbsolutePath());    
+        }
+		
+	}
 }
