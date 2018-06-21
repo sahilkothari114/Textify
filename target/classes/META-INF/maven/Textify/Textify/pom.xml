@@ -29,7 +29,9 @@
       </plugin>
     </plugins>
   </build>
-
+<properties>
+	<jdk.version>1.8</jdk.version>
+</properties>
 
   <dependencies>
 

@@ -21,7 +21,7 @@
                </image>
             </ImageView>
             <TextField fx:id="imagePath" layoutX="14.0" layoutY="35.0" prefHeight="39.0" prefWidth="503.0" promptText="Image path" />
-         <Button layoutX="574.0" layoutY="2.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="9.0" style="-fx-background-color: red; -fx-border-radius: 5em; -fx-background-radius: 5em; -fx-pref-height: 5px;" text="X" textFill="WHITE">
+         <Button layoutX="574.0" layoutY="2.0" mnemonicParsing="false" prefHeight="10.0" prefWidth="9.0" style="-fx-background-color: red; -fx-border-radius: 5em; -fx-background-radius: 5em; -fx-pref-height: 5px;" text="X" textFill="WHITE" fx:id="closeButton" onAction="#closeButtonAction">
             <effect>
                <Lighting>
                   <bumpInput>
@@ -46,7 +46,7 @@
             <tooltip>
                <Tooltip text="Text from image" />
             </tooltip></TextArea>
-            <Button layoutX="410.0" layoutY="299.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-border-radius: 5em; -fx-background-color: #e67e22; -fx-background-radius: 5em;" text="Save" />
+            <Button layoutX="410.0" layoutY="299.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-border-radius: 5em; -fx-background-color: #e67e22; -fx-background-radius: 5em;" text="Save" fx:id="save" onAction="#save" />
             <Button layoutX="316.0" layoutY="299.0" mnemonicParsing="false" onMouseClicked="#copyText" prefHeight="25.0" prefWidth="82.0" style="-fx-border-radius: 5em; -fx-background-color: #e67e22; -fx-background-radius: 5em;" text="Copy" />
             <Button layoutX="504.0" layoutY="299.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-border-radius: 5em; -fx-background-color: #e67e22; -fx-background-radius: 5em;" text="Save As" />
          </children>
